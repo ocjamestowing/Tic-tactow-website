@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac Tow | Professional 24/7 Towing & Roadside Assistance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;      /* Navy blue */
+      --secondary: #dc2626;    /* Red */
+      --accent: #3b82f6;       /* Blue */
+      --dark: #1e293b;         /* Dark blue */
+      --light: #f1f5f9;        /* Light blue-gray */
+      --text: #1e293b;         /* Dark blue text */
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      color: var(--text);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Road Pattern Overlay */
+    body:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, transparent 50%, rgba(220, 38, 38, 0.03) 50%),
+        linear-gradient(0deg, transparent 50%, rgba(220, 38, 38, 0.03) 50%);
+      background-size: 100px 100px;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    /* -------------------- ENHANCED HEADER SECTION -------------------- */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #0f2c61 100%);
+      padding: 30px 20px 90px;
+      text-align: center;
+      color: white;
+      border-bottom: 4px solid var(--secondary);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(220, 38, 38, 0.2) 0%, transparent 20%);
+      z-index: 0;
+    }
+    
+    .logo-container {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 0 auto 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 0;
+    }
+    
+    .logo-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .twentyfour {
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      letter-spacing: -2px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #fff 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+      margin-bottom: -15px;
+    }
+    
+    .hours {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--light);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+      margin-top: -10px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .company-name {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 15px 0 10px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.4);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fff 0%, #dc2626 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    
+    .logo-phone {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      background: rgba(30, 58, 138, 0.9);
+      padding: 12px 35px;
+      border-radius: 50px;
+      display: inline-block;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+    }
+    
+    .logo-phone:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.9);
+    }
+    
+    .tagline {
+      font-size: 1.6rem;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 15px auto 30px;
+      color: #e2e8f0;
+      position: relative;
+      z-index: 10;
+      padding: 12px 25px;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 8px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      letter-spacing: 1px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 20px 50px;
+      background: linear-gradient(135deg, var(--secondary) 0%, #b91c1c 100%);
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4);
+      border: 2px solid rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      animation: pulse 2s infinite;
+    }
+    
+    .cta-button:hover {
+      background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+    }
+    
+    .tow-truck-animation {
+      position: absolute;
+      bottom: -40px;
+      width: 180px;
+      height: 90px;
+      z-index: 5;
+      animation: drive 30s linear infinite;
+    }
+    
+    .tow-truck {
+      font-size: 4.5rem;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+      opacity: 0.85;
+    }
+    
+    /* TRUCK MOVES BACKWARDS (RIGHT TO LEFT) */
+    @keyframes drive {
+      0% { left: calc(100% + 180px); }
+      100% { left: -180px; }
+    }
+    
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--accent), 0 0 20px var(--accent); }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--accent), 0 0 40px var(--accent); }
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+    }
+    
+    /* -------------------- NAVIGATION -------------------- */
+    nav {
+      background: var(--primary);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-size: 1.05rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    nav a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      border-color: transparent;
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+    
+    /* -------------------- SERVICES SECTION -------------------- */
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+    
+    /* Enhanced Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .service-block {
+      background: white;
+      border-radius: 10px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .service-block:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--accent);
+      transform: skewX(-45deg);
+    }
+    
+    .service-block:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+      border-color: var(--accent);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+    
+    .service-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .service-desc {
+      color: #475569;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      min-height: 40px;
+    }
+    
+    .service-call {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 200px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .service-call:hover {
+      background: #b91c1c;
+      transform: translateY(-3px);
+    }
+    
+    /* Google-style Reviews Section */
+    .reviews-section {
+      background: white;
+      padding: 60px 0;
+      border-radius: 15px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .google-logo {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 15px;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 8px 20px;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .google-logo i {
+      color: #4285F4;
+      font-size: 2rem;
+      margin-right: 10px;
+    }
+    
+    .rating-overview {
+      margin-top: 15px;
+    }
+    
+    .average-rating {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    
+    .stars-large {
+      color: #FFD700;
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+    
+    .reviews-count {
+      color: #64748b;
+      font-weight: 500;
+    }
+    
+    .reviews-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 20px 0 40px;
+      gap: 25px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .reviews-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .reviews-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
+    
+    .review-card {
+      flex: 0 0 auto;
+      width: 320px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      scroll-snap-align: start;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-right: 15px;
+    }
+    
+    .review-info {
+      flex: 1;
+    }
+    
+    .review-name {
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: var(--primary);
+    }
+    
+    .review-date {
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    
+    .review-stars {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .review-text {
+      color: #334155;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .google-verified {
+      display: flex;
+      align-items: center;
+      color: #34a853;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .google-verified i {
+      margin-right: 5px;
+    }
+    
+    /* Request Service Form */
+    .request-form-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 700px;
+      margin: 0 auto;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      background: rgba(241, 245, 249, 0.5);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      color: var(--text);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .location-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .btn-submit:hover {
+      background: #b91c1c;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .about-text {
+      color: #334155;
+      line-height: 1.8;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+    }
+    
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      height: 100%;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .service-area {
+      background: linear-gradient(135deg, var(--primary) 0%, #0f2c61 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Fix for service area section title */
+    .service-area .section-title {
+      color: white !important;
+    }
+    
+    .service-area .section-title:after {
+      background: var(--accent);
+    }
+    
+    .cities-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .city-badge {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .city-badge:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 50px 20px 30px;
+      text-align: center;
+      border-top: 3px solid var(--secondary);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      color: white;
+      font-weight: 700;
+    }
+    
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .contact-info {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-info i {
+      color: var(--accent);
+      margin-right: 15px;
+      margin-top: 5px;
+      min-width: 20px;
+    }
+    
+    .footer-column p, 
+    .footer-column a,
+    .contact-info div,
+    .contact-info a,
+    .footer-column .contact-info div strong {
+      color: white;
+      font-weight: 500;
+    }
+    
+    .footer-column a {
+      display: block;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 3px;
+      font-weight: 600;
+    }
+    
+    .footer-column a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-column a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .footer-column a:hover:after {
+      width: 100%;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(59, 130, 246, 0.2);
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(59, 130, 246, 0.3);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+    
+    .phone-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--secondary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(220, 38, 38, 0.5);
+      z-index: 1000;
+      animation: pulse 1.5s infinite;
+      border: 2px solid var(--accent);
+    }
+
+    /* Form Success Message */
+    .form-success {
+      background: rgba(52, 168, 83, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: none;
+      margin: 20px auto;
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(59, 130, 246, 0.3);
+      border-radius: 50%;
+      border-top: 5px solid var(--accent);
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* -------------------- RESPONSIVE DESIGN -------------------- */
+    @media (max-width: 992px) {
+      .company-name {
+        font-size: 3.8rem;
+      }
+      
+      .twentyfour {
+        font-size: 4.5rem;
+      }
+      
+      .logo-phone {
+        font-size: 2.2rem;
+        padding: 10px 25px;
+      }
+      
+      .tagline {
+        font-size: 1.4rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .company-name {
+        font-size: 3.2rem;
+      }
+      
+      .twentyfour {
+        font-size: 4rem;
+      }
+      
+      .hours {
+        font-size: 1.5rem;
+      }
+      
+      .logo-phone {
+        font-size: 1.8rem;
+      }
+      
+      .cta-button {
+        font-size: 1.2rem;
+        padding: 16px 35px;
+      }
+      
+      .tagline {
+        font-size: 1.3rem;
+        padding: 10px 20px;
+      }
+      
+      nav a {
+        margin: 5px;
+        font-size: 0.95rem;
+        padding: 8px 15px;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .section {
+        padding: 50px 15px;
+      }
+      
+      .request-form-container {
+        padding: 25px;
+      }
+      
+      .reviews-header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .review-card {
+        width: 280px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header {
+        padding: 25px 15px 60px;
+      }
+      
+      .company-name {
+        font-size: 2.8rem;
+      }
+      
+      .twentyfour {
+        font-size: 3.5rem;
+      }
+      
+      .hours {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+      }
+      
+      .logo-phone {
+        font-size: 1.6rem;
+        padding: 8px 20px;
+      }
+      
+      .cta-button {
+        font-size: 1.1rem;
+        padding: 14px 30px;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-overlay"></div>
+    
+    <!-- Single larger tow truck animation running backwards (right to left) -->
+    <div class="tow-truck-animation" style="animation-delay: 0s;">
+      <div class="tow-truck">🚛</div>
+    </div>
+    
+    <div class="logo-container">
+      <div class="logo-main">
+        <div class="twentyfour">24</div>
+        <div class="hours">HOURS</div>
+        <div class="company-name">TIC-TAC TOW</div>
+      </div>
+      <a href="tel:6572819168" class="logo-phone">
+        <i class="fas fa-phone"></i> (657) 281-9168
+      </a>
+    </div>
+    
+    <h1>Professional Towing & Roadside Assistance</h1>
+    <p class="tagline">Fast, Reliable Service 24/7 - Anywhere in Southern California</p>
+    <a href="tel:6572819168" class="cta-button">
+      <i class="fas fa-phone"></i> Call Now for Immediate Assistance
+    </a>
+  </header>
+  
+  <nav>
+    <a href="#services"><i class="fas fa-tools"></i> Services</a>
+    <a href="#request"><i class="fas fa-road"></i> Request Service</a>
+    <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="#service-area"><i class="fas fa-map-marker-alt"></i> Service Area</a>
+  </nav>
+  
+  <section class="section" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-block">
+        <div class="service-icon">
+          🚛 <!-- Flatbed tow truck emoji -->
+        </div>
+        <h3 class="service-title">Towing</h3>
+        <p class="service-desc">Safe transport for all vehicles</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          🛞 <!-- Flat tire emoji -->
+        </div>
+        <h3 class="service-title">Flat Tire Replacement</h3>
+        <p class="service-desc">Quick tire change service</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          🔋 <!-- Jump start emoji -->
+        </div>
+        <h3 class="service-title">Jump Start</h3>
+        <p class="service-desc">Dead battery? We'll get you going</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <!-- Additional services -->
+      <div class="service-block">
+        <div class="service-icon">
+          🔒 <!-- Lockout emoji -->
+        </div>
+        <h3 class="service-title">Lockout Service</h3>
+        <p class="service-desc">Locked out? We'll get you back in</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          ⛽ <!-- Fuel delivery emoji -->
+        </div>
+        <h3 class="service-title">Fuel Delivery</h3>
+        <p class="service-desc">Out of gas? We'll bring you fuel</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <!-- Motorcycle Towing moved between Fuel Delivery and Winch Out -->
+      <div class="service-block">
+        <div class="service-icon">
+          🏍️ <!-- Motorcycle emoji -->
+        </div>
+        <h3 class="service-title">Motorcycle Towing</h3>
+        <p class="service-desc">Specialized transport for motorcycles</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          🪝 <!-- Winch out emoji -->
+        </div>
+        <h3 class="service-title">Winch Out Service</h3>
+        <p class="service-desc">Stuck vehicle recovery</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          🏗️ <!-- Equipment transport emoji -->
+        </div>
+        <h3 class="service-title">Equipment Transport</h3>
+        <p class="service-desc">Heavy machinery transport</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="service-block">
+        <div class="service-icon">
+          🚘 <!-- Premium transport emoji -->
+        </div>
+        <h3 class="service-title">Premium Transportation</h3>
+        <p class="service-desc">Luxury, low-profile & long-haul</p>
+        <a href="tel:6572819168" class="service-call">
+          <i class="fas fa-phone call-icon"></i> Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="request">
+    <h2 class="section-title">Request Service</h2>
+    <div class="request-form-container">
+      <form method="POST" action="https://formsubmit.co/tictactowweb@gmail.com" id="serviceForm">
+        <input type="hidden" name="_subject" value="New Towing Service Request!">
+        <input type="hidden" name="_autoresponse" value="Thank you for contacting Tic-Tac Tow! We've received your service request and will contact you shortly.">
+        <input type="hidden" name="_template" value="table">
+        
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone Number" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email (Optional)</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Your Email Address">
+        </div>
+        
+        <div class="form-group">
+          <label for="vehicle">Vehicle Type</label>
+          <input type="text" id="vehicle" name="vehicle" class="form-control" placeholder="Make, Model, Year" required>
+        </div>
+        
+        <!-- Service Needed -->
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" class="form-control" required onchange="handleServiceChange(this)">
+            <option value="">Select a Service</option>
+            <option value="Tow">Tow Service</option>
+            <option value="Tire">Flat Tire Replacement</option>
+            <option value="Jump">Jump Start</option>
+            <option value="Lockout">Lockout Assistance</option>
+            <option value="Fuel">Fuel Delivery</option>
+            <option value="Motorcycle">Motorcycle Towing</option>
+            <option value="Winch">Winch Out Service</option>
+            <option value="Equipment">Equipment Transportation</option>
+            <option value="Premium">Premium Transportation</option>
+          </select>
+        </div>
+        
+        <!-- Premium Transport Options -->
+        <div class="form-group" id="premiumOptions" style="display:none">
+          <label for="premiumType">Transport Type</label>
+          <select id="premiumType" name="premium_type" class="form-control">
+            <option value="">Select Type</option>
+            <option value="Luxury">Luxury Vehicle</option>
+            <option value="Low Profile">Low Profile Vehicle</option>
+            <option value="Long Haul">Long Haul Transportation</option>
+          </select>
+        </div>
+        
+        <!-- Location fields - dynamic based on service -->
+        <div class="location-group" id="locationFields">
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" class="form-control" placeholder="Your Current Location or Address" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="details">Additional Details</label>
+          <textarea id="details" name="details" class="form-control" placeholder="Any special requirements or details about your situation" rows="4"></textarea>
+        </div>
+        
+        <div class="spinner" id="formSpinner"></div>
+        <div class="form-success" id="formSuccess">
+          <i class="fas fa-check-circle"></i> Thank you! Your request has been submitted. We'll contact you shortly.
+        </div>
+        
+        <button type="submit" class="btn-submit">Request Help Now</button>
+      </form>
+    </div>
+  </section>
+  
+  <section class="section reviews-section" id="reviews">
+    <div class="reviews-header">
+      <div class="google-logo">
+        <i class="fab fa-google"></i>
+        <span>Google Reviews</span>
+      </div>
+      <h2 class="section-title">Customer Reviews</h2>
+      <div class="rating-overview">
+        <div class="average-rating">5.0</div>
+        <div class="stars-large">★★★★★</div>
+        <div class="reviews-count">Based on 128 reviews</div>
+      </div>
+    </div>
+    
+    <div class="reviews-container">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">Feras Amoudi</div>
+            <div class="review-date">2 weeks ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Showed up on time and was careful with my low-profile car. Professional service from start to finish. Highly recommend Tic-Tac Tow!</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">Laith Ayasrah</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Fast and professional. Helped me tow my Nissan Altima from the 57 freeway. Reasonable prices and friendly service. Will use again!</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">James Askar</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Best towing service in Orange County! Always on time and communicative. They've helped me multiple times and never disappoint.</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">Nancy M.</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Great service, timely pickup and one of the few honest towing companies. Highly recommended for their professionalism and fair pricing.</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">Lamin Rosa</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">He was amazing! I was stuck on an overpass freeway, he got there in 15 mins, good price, my car is lowered and he knew exactly what to do.</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="review-info">
+            <div class="review-name">Michael T.</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Saved me at 2 AM with a flat tire. Fast response, fair pricing, and super friendly. Will definitely call Tic-Tac Tow again if needed!</p>
+        <div class="google-verified">
+          <i class="fas fa-check-circle"></i>
+          <span>Google Verified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Tic-Tac Tow has been providing professional towing and roadside assistance services throughout Southern California since 2015. Our mission is to deliver fast, reliable, and affordable help to drivers in need.</p>
+        
+        <p>With a fleet of modern, well-equipped trucks and a team of certified professionals, we handle everything from standard vehicle towing to specialized equipment transport. We pride ourselves on quick response times, transparent pricing, and commitment to customer satisfaction.</p>
+        
+        <a href="tel:6572819168" class="cta-button" style="margin-top: 20px; display: inline-block;">
+          <i class="fas fa-phone"></i> Call Us Now - (657) 281-9168
+        </a>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1592840331052-16e15c2c6f95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Tic-Tac Tow Truck">
+      </div>
+    </div>
+  </section>
+  
+  <section class="service-area" id="service-area">
+    <h2 class="section-title">Our Service Area</h2>
+    <div class="cities-container">
+      <div class="city-badge">Anaheim</div>
+      <div class="city-badge">Fullerton</div>
+      <div class="city-badge">Yorba Linda</div>
+      <div class="city-badge">Placentia</div>
+      <div class="city-badge">Brea</div>
+      <div class="city-badge">Corona</div>
+      <div class="city-badge">Chino</div>
+      <div class="city-badge">Riverside</div>
+      <div class="city-badge">Newport Beach</div>
+      <div class="city-badge">Costa Mesa</div>
+      <div class="city-badge">Santa Ana</div>
+      <div class="city-badge">Irvine</div>
+      <div class="city-badge">Mission Viejo</div>
+      <div class="city-badge">Aliso Viejo</div>
+      <div class="city-badge">Laguna Beach</div>
+      <div class="city-badge">Orange County</div>
+      <div class="city-badge">Los Angeles</div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Phone:</strong><br>
+            <a href="tel:6572819168">(657) 281-9168</a>
+          </div>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email:</strong><br>
+            <a href="mailto:tictactowweb@gmail.com">tictactowweb@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Hours:</strong><br>
+            24/7, 365 Days a Year
+          </div>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Address:</strong><br>
+            950 E Orangethorpe Ave, Anaheim, CA
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <p><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></p>
+        <p><a href="#request"><i class="fas fa-chevron-right"></i> Request Service</a></p>
+        <p><a href="#reviews"><i class="fas fa-chevron-right"></i> Customer Reviews</a></p>
+        <p><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></p>
+        <p><a href="#service-area"><i class="fas fa-chevron-right"></i> Service Area</a></p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Connect With Us</h3>
+        <p>Follow us on social media for updates and special offers.</p>
+        <div class="social-links">
+          <a href="#" title="Facebook">📘</a>
+          <a href="https://www.youtube.com" title="YouTube">▶️</a>
+          <a href="https://www.yelp.com/biz/tic-tac-tow-anaheim" title="Yelp">⭐</a>
+          <a href="#" title="Instagram">📸</a>
+          <a href="https://maps.app.goo.gl/hC55yqg7LtE1HjZA6?g_st=com.google.maps.preview.copy" title="Google Maps">🗺️</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 Tic-Tac Tow. All rights reserved. | CA License #TT7890</p>
+      <p>Professional Towing & Roadside Assistance Services</p>
+    </div>
+  </footer>
+  
+  <a class="phone-float" href="tel:6572819168">
+    📞
+  </a>
+  
+  <script>
+    // Handle service change in form
+    function handleServiceChange(select) {
+      const premiumOptions = document.getElementById('premiumOptions');
+      const locationFields = document.getElementById('locationFields');
+      const locationGroup = locationFields.querySelector('.location-group');
+      
+      // Show premium options if premium transport selected
+      if (select.value === 'Premium') {
+        premiumOptions.style.display = 'block';
+      } else {
+        premiumOptions.style.display = 'none';
+      }
+      
+      // Clear existing location fields
+      locationGroup.innerHTML = '';
+      
+      // Check if we need two location fields
+      const servicesNeedingTwoLocations = ['Tow', 'Equipment', 'Premium', 'Motorcycle'];
+      
+      if (servicesNeedingTwoLocations.includes(select.value)) {
+        // Create two location fields
+        const pickupField = document.createElement('div');
+        pickupField.className = 'form-group';
+        pickupField.innerHTML = `
+          <label for="pickup">Pickup Location</label>
+          <input type="text" id="pickup" name="pickup" class="form-control" placeholder="Pickup Location" required>
+        `;
+        
+        const dropoffField = document.createElement('div');
+        dropoffField.className = 'form-group';
+        dropoffField.innerHTML = `
+          <label for="dropoff">Dropoff Location</label>
+          <input type="text" id="dropoff" name="dropoff" class="form-control" placeholder="Dropoff Location" required>
+        `;
+        
+        locationGroup.appendChild(pickupField);
+        locationGroup.appendChild(dropoffField);
+      } else {
+        // Create single location field
+        const singleField = document.createElement('div');
+        singleField.className = 'form-group';
+        singleField.innerHTML = `
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" class="form-control" placeholder="Your Current Location or Address" required>
+        `;
+        
+        locationGroup.appendChild(singleField);
+      }
+    }
+    
+    // Form submission handler
+    document.getElementById('serviceForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading spinner
+      const spinner = document.getElementById('formSpinner');
+      spinner.style.display = 'block';
+      
+      // Hide any previous success message
+      const successMessage = document.getElementById('formSuccess');
+      successMessage.style.display = 'none';
+      
+      // Create a new FormData object
+      const formData = new FormData(this);
+      
+      // Submit the form using fetch
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success message
+          successMessage.style.display = 'block';
+          
+          // Reset form
+          this.reset();
+          
+          // Hide premium options if visible
+          document.getElementById('premiumOptions').style.display = 'none';
+          
+          // Reset location fields to default
+          handleServiceChange(document.getElementById('service'));
+        } else {
+          alert('There was an error submitting your request. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting your request. Please try again.');
+      })
+      .finally(() => {
+        // Hide spinner
+        spinner.style.display = 'none';
+      });
+    });
+    
+    // Add active class to nav links on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
